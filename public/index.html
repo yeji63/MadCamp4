@@ -8,23 +8,41 @@
     <link href="main.css" rel="stylesheet">
 
     <script>
-      function btnClick(){
-        console.log("버튼 클릭 이벤트 발생");
-        //편지 넣기
-        location.href="enter.html"
-      }
+      // function btnClick(){
+      //   console.log("버튼 클릭 이벤트 발생");
+      //   $('.letter').append(temp)
+        
+      //   //location.href="enter.html"
+      // }
     </script>
 
   </head>
 
   <body>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
     
-    <div class="Enter" onclick="btnClick()">
+    <div class="Enter" >
       <video id="vid" src="video/book_intor1.mp4" width="100%" height="100%" autoplay="autoplay" muted="muted"></video>
     </div>
+
+
+    <div class="letter">
+    </div>
+
     <script>
       document.getElementById("vid").play();
     </script>
 
   </body>
+
+  <script defer src="/__/firebase/8.8.0/firebase-app.js"></script>
+  <script defer src="/__/firebase/8.8.0/firebase-firestore.js"></script>
+  <script defer src="/__/firebase/8.8.0/firebase-storage.js"></script>
+  <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+  <script type = 'module' src="index.js"></script>
+
 </html>
