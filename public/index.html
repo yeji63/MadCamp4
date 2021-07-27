@@ -7,14 +7,26 @@
 
     <link href="main.css" rel="stylesheet">
 
-    <script>
-      // function btnClick(){
-      //   console.log("버튼 클릭 이벤트 발생");
-      //   $('.letter').append(temp)
-        
-      //   //location.href="enter.html"
-      // }
-    </script>
+
+    <style>
+      .letter{
+        animation-name: tracking-in-expand;
+        animation-duration: 5s;
+      }
+
+      @keyframes tracking-in-expand {
+    0% {
+      letter-spacing: -0.5em;
+      opacity: 0;
+    }
+    40% {
+      opacity: 0.6;
+    }
+    100% {
+      opacity: 1;
+    }
+}
+    </style>
 
   </head>
 
@@ -25,10 +37,12 @@
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
     
-    <div class="Enter" >
+    <div class="Enter">
       <video id="vid" src="video/book_intor1.mp4" width="100%" height="100%" autoplay="autoplay" muted="muted"></video>
     </div>
 
+    <div id="paper" class="paper">
+    </div>
 
     <div class="letter">
     </div>
