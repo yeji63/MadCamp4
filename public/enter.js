@@ -14,15 +14,31 @@ if(!firebase.apps.length){
 }
 const db = firebase.firestore();
 
+const total = 2;
+const rand = Math.floor(Math.random() * total); //0<=rand<total
+
 const username = localStorage.getItem('username');
 const gender = localStorage.getItem('gender');
-const total = 1;
-const rand = Math.floor(Math.random() * total); //0<=rand<total
+
 
 db.collection("travel").where('num', '==', rand).get()
   .then(function(querySnapshot){
       querySnapshot.forEach(function(doc){
-          console.log(doc.data());
+        console.log(doc.data());
+          
+        var temp = `<p class="letter1" style="font-size: 35px;">Dear ${gender} ${username}</p>
+            <p class="letter2">Welcome.</p>
+            <p class="letter2">We are pleased to inform you that today,</p>
+            <p class="letter3">you will be joining our facinating trip to <b>"${doc.data().place}"</b></p> 
+            <p class="letter4">Your mission is to find the <b>"${doc.data().landmark}"</b>.</p>
+            <p class="letter4">Good luck on your trip!</p>  
+            <p class="letter5">Yours sincerely,</p>
+            <p class="letter6" style="font-family: 'Homemade Apple', cursive;">MadCamp4</p>`;
+
+        $('.letter').append(temp)
+
+
+
           localStorage.setItem('place', doc.data().place);
           localStorage.setItem('landmark', doc.data().landmark);
           localStorage.setItem('startCoordLat', doc.data().startCoord._lat);
