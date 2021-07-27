@@ -24,7 +24,7 @@ const gender = localStorage.getItem('gender');
 db.collection("travel").where('num', '==', rand).get()
   .then(function(querySnapshot){
       querySnapshot.forEach(function(doc){
-        console.log(doc.data());
+        console.log(username, gender);
           
         var temp = `<p class="letter1" style="font-size: 35px;">Dear ${gender} ${username}</p>
             <p class="letter2">Welcome.</p>

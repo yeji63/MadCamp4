@@ -51,28 +51,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
     loginForm.addEventListener("submit", e => {
         e.preventDefault();
+        console.log("here");
 
         const username = document.getElementById("loginUsername").value;
         const password = document.getElementById("loginPassword").value;
 
-        // Perform your AJAX/Fetch login
-        db.collection("user").where('username', '==', username).get()
-        .then(function(querySnapshot){
-            querySnapshot.forEach(function(doc){
-                console.log(doc.id, "=>", doc.data());
-                if(doc.data().password == password){
-                    localStorage.setItem('username', doc.data().username);
-                    localStorage.setItem('gender', doc.data().gender);
-                    location.href="index.html"
-                } else {
-                    setFormMessage(loginForm, "error", "Invalid username/password combination");
-                }
+        if(username.length != 0 && password.length != 0){
+            db.collection("user").where('username', '==', username).get()
+            .then(function(querySnapshot){
+                querySnapshot.forEach(function(doc){
+                    console.log(doc.id, "=>", doc.data());
+                    if(doc.data().password == password){
+                        localStorage.setItem('username', doc.data().username);
+                        localStorage.setItem('gender', doc.data().gender);
+                        location.href="index.html"
+                    } else {
+                        setFormMessage(loginForm, "error", "Invalid username/password combination");
+                    }
+                });
+            })
+            .catch(function(error){
+                console.log("Error getting documents: ", error);
             });
-        })
-        .catch(function(error){
-            console.log("Error getting documents: ", error);
-        });
-        
+        }       
     });
 
     createAccountForm.addEventListener("submit", e => {
@@ -84,20 +85,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if(username.length == 0 || gender.length == 0 || password.length == 0){
             setFormMessage(createAccountForm, "error", "Invalid Signup");
+        } else {
+            db.collection("user").add({
+                username: username,
+                password: password,
+                gender: gender
+            })
+            .then((docRef) => {
+                console.log("Document written with ID: ", docRef.id);
+                loginForm.classList.remove("form--hidden");
+                createAccountForm.classList.add("form--hidden");
+            })
+            .catch((error) => {
+                console.log("Error adding document: ", error);
+            });
         }
-
-        db.collection("user").add({
-            username: username,
-            password: password,
-            gender: gender
-        })
-        .then((docRef) => {
-            console.log("Document written with ID: ", docRef.id);
-        })
-        .catch((error) => {
-            console.log("Error adding document: ", error);
-        });
-        
     });
 
     document.querySelectorAll(".form__input").forEach(inputElement => {
