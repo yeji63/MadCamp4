@@ -55,7 +55,7 @@ function initPano() {
 
         if(Math.abs(newLat-destCoordLat)<0.001 && Math.abs(newLng-destCoordLng)<0.001) {
             if(!succ){
-                let ret = confirm(`Congratulations, you've found` + landmark + `! Would you like to return home?`);
+                let ret = confirm(`Congratulations, you've found ` + landmark + `! Would you like to return home?`);
                 if(ret){
                   console.log(`return home`);
                   db.collection("user").where('username', '==', username).get()

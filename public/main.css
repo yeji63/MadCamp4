@@ -13,6 +13,17 @@
     }
 }
 
+@keyframes slide-top {
+    0% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+    }
+    100% {
+      -webkit-transform: translateY(-100px);
+              transform: translateY(-100px);
+    }
+}
+
 body{
     margin: 0px;
     overflow: hidden;
@@ -27,13 +38,20 @@ body{
     margin: 0px;
     position: relative;
 }
+.paper {
+    position: absolute;
+    top: 10%;
+    width: 40%;
+    height: 80%;
+    margin-left: 30%;
+    align-items: center;
+}
 
 .letter {
     position: absolute;
-    top: 22%;
+    top: 19%;
     width: 100%;
-    margin-left: 53%;
-    animation: tracking-in-expand 2s;
+    margin-left: 37%;
 }
 
 .letter1 {
@@ -45,6 +63,3 @@ body{
 }
 
 .letter p {font-family: 'Dancing Script', cursive; text-align: left; font-size: 26px;}
-
-
-
