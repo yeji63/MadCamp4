@@ -1,0 +1,28 @@
+*{margin:0; padding: 0;}
+
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    background: url(image/wallpaper.jpg);
+    background-size: cover;
+}
+
+.img1{
+    width: 400px;
+    transform: rotate(10deg);
+    position:absolute;
+    left:200px;
+    top:500px;
+}
+
+.img2{
+    width: auto;
+    transform: rotate(-10deg);
+    position:absolute;
+    left:900px;
+    top:200px;
+}

@@ -89,7 +89,8 @@ document.addEventListener("DOMContentLoaded", () => {
             db.collection("user").add({
                 username: username,
                 password: password,
-                gender: gender
+                gender: gender,
+                travels: [false,false,false,false,false,false]
             })
             .then((docRef) => {
                 console.log("Document written with ID: ", docRef.id);

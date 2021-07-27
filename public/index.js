@@ -38,6 +38,7 @@ db.collection("travel").where('num', '==', rand).get()
             <p class="letter6" style="font-family: 'Homemade Apple', cursive;">MadCamp4</p>`;
        
 
+        localStorage.setItem('num', doc.data().num);
         localStorage.setItem('place', doc.data().place);
         localStorage.setItem('landmark', doc.data().landmark);
         localStorage.setItem('startCoordLat', doc.data().startCoord._lat);
