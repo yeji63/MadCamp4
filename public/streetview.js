@@ -29,6 +29,20 @@ function initPano() {
     const destCoordLng = parseFloat(localStorage.getItem('destCoordLng'));
     console.log(startCoordLat, startCoordLng, destCoordLat, destCoordLng);
 
+    
+    // document.getElementById("floating-panel").style.display = "block";
+    // var tenseconds=10, display=document.querySelector('#time');
+    // startTimer(tenseconds, display);
+    //document.getElementById('shutter').play();
+  //   var audio = document.createElement("AUDIO")
+  //   document.body.appendChild(audio);
+  //   audio.src = "./audio/shutter.wav"
+  //   document.body.addEventListener("mousemove", function () {
+  //     audio.play()
+  // })
+    // var audio = new Audio('audio/shutter.wav');
+    // audio.play();
+
     var succ = false;
     var far = false;
     const panorama = new google.maps.StreetViewPanorama(
@@ -55,9 +69,8 @@ function initPano() {
 
         if(Math.abs(newLat-destCoordLat)<0.001 && Math.abs(newLng-destCoordLng)<0.001) {
             if(!succ){
-                let ret = confirm(`Congratulations, you've found ` + landmark + `! Would you like to return home?`);
-                if(ret){
-                  console.log(`return home`);
+                alert(`Congratulations, you've found ` + landmark + `!\nReturning home after 10 seconds`);
+                console.log(`return home`);
                   db.collection("user").where('username', '==', username).get()
                   .then(function(querySnapshot){
                       querySnapshot.forEach(function(doc){
@@ -81,23 +94,60 @@ function initPano() {
                       console.log("Error getting documents: ", error);
                   });
 
+                  // var audio = new Audio('audio/shutter.wav');
+                  // audio.play();
+
+                  document.getElementById("timer").style.display = "block";
+                  document.getElementById("floating-panel").style.display = "block";
+                  var tenseconds=10, display=document.querySelector('#time');
+                  startTimer(tenseconds, display);
+
                   setTimeout(function(){
                     location.href="wallpaper.html"
                   }, 10000);
-                }
-                else console.log(`want to play more`);
-                succ = true;
+
+                  succ = true;
             }
         }
 
-        if(Math.abs(newLat-destCoordLat)>0.015 || Math.abs(newLng-destCoordLng)>0.015){
+        if(Math.abs(newLat-destCoordLat)>0.5 || Math.abs(newLng-destCoordLng)>0.5){
             if(!far){
-              console.log(newLat-destCoordLat, newLng-destCoordLng);
-              alert(`Oh no you're getting farther away!`);
-              far = true;
+                alert(`Oh no you're getting farther away!`);
+                far = true;
             }
         } else {
             far = false;
         }
     });
+  }
+
+  function startTimer(duration, display){
+    var start = Date.now(),
+    diff,
+    minutes,
+    seconds;
+
+    function timer() {
+      // get the number of seconds that have elapsed since 
+      // startTimer() was called
+      diff = duration - (((Date.now() - start) / 1000) | 0);
+
+      // does the same job as parseInt truncates the float
+      //minutes = (diff / 60) | 0;
+      seconds = (diff % 60) | 0;
+
+      //minutes = minutes < 10 ? "0" + minutes : minutes;
+      seconds = seconds < 10 ? "0" + seconds : seconds;
+
+      display.textContent = seconds; 
+
+      if (diff <= 0) {
+          // add one second so that the count down starts at the full duration
+          // example 05:00 not 04:59
+          start = Date.now() + 1000;
+      }
+    };
+    // we don't want to wait a full second before the timer starts
+    timer();
+    setInterval(timer, 1000);
   }

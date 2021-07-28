@@ -17,3 +17,28 @@
         height: 100%;
         float: left;
       }
+
+      #timer{
+        position: absolute;
+        width:240px;
+        top: 40px;
+        left: 40px;
+        z-index: 5;
+        display: none;
+      }
+
+      #floating-panel {
+        position: absolute;
+        top: 205px;
+        left: 138px;
+        z-index: 5;
+        color: white;
+        text-align: center;
+        font-size: 35px;
+        font-family: 'Lora', serif;
+        display: none;
+      }
+
+
+        /* font-family: 'Do Hyeon', sans-serif; */
+        /* font-family: "Roboto", "sans-serif"; */

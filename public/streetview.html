@@ -5,14 +5,20 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <link rel="stylesheet" type="text/css" href="streetview.css" />
     <!-- <script src="streetview.js"></script> -->
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+      </style>
   </head>
   <body>
+    <!-- <audio id="shutter" autoplay="autoplay" src="audio/shutter.wav"></audio> -->
+    <img id="timer" src="image/timer.png">
+    <div id = "floating-panel"><span id="time"></span></div>
     <div id="pano"></div>
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAID2Usxq5FVPUJGerxwlh49GM7PaiVOj4&callback=initPano&libraries=&v=weekly"
       async
     ></script>
-
+    <!-- <div>StreetView closes in <span id="time"></span> seconds!</div> -->
   </body>
   <script defer src="/__/firebase/8.8.0/firebase-app.js"></script>
   <script defer src="/__/firebase/8.8.0/firebase-firestore.js"></script>
