@@ -45,7 +45,7 @@ function initPano() {
             }
         }
 
-        if(Math.abs(newLat-destCoordLat)>0.5 || Math.abs(newLng-destCoordLng)>0.5){
+        if(Math.abs(newLat-destCoordLat)>0.01 || Math.abs(newLng-destCoordLng)>0.01){
             if(!far){
                 alert(`Oh no you're getting farther away!`);
                 far = true;
