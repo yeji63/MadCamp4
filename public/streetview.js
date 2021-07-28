@@ -45,10 +45,11 @@ function initPano() {
             }
         }
 
-        if(Math.abs(newLat-destCoordLat)>0.01 || Math.abs(newLng-destCoordLng)>0.01){
+        if(Math.abs(newLat-destCoordLat)>0.015 || Math.abs(newLng-destCoordLng)>0.015){
             if(!far){
-                alert(`Oh no you're getting farther away!`);
-                far = true;
+              console.log(newLat-destCoordLat, newLng-destCoordLng);
+              alert(`Oh no you're getting farther away!`);
+              far = true;
             }
         } else {
             far = false;
