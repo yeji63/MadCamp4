@@ -13,7 +13,6 @@
         margin: 0;
         padding: 0;
       }
-      
       #pano {
         width: 100%;
         height: 100%;
@@ -32,7 +31,7 @@
       #bigScript{
         position: absolute;
         width:790px;
-        height:900px;
+        height:870px;
         top: 5%;
         left: 27%;
         z-index: 5;

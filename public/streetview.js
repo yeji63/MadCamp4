@@ -141,10 +141,11 @@ function initPano() {
     document.getElementById("smallScript").style.display = "none";
 
     var temp = `<p class="letter2" style="font-size: 40px; margin-bottom:70px">Contratulations!</p>
-          <p class="letter2">You have successfully found ${landmark}</p>
-          <p class="letter4">If you wish to return home, touch the seal.</b></p>
+          <p class="letter2">You have successfully found "${landmark}"</p>
+          <p class="letter3">If you wish to return home,</b></p>
+          <p class="letter4" style="margin-bottom:70px">touch the seal.</b></p>
           <p class="letter5">Yours sincerely,</p>
-          <p class="letter6" style="font-family: 'Homemade Apple', cursive;">MadCamp4</p>`;
+          <p class="letter6" style="font-family: 'Homemade Apple', cursive;">Bridge to Memory</p>`;
     $('.message').append(temp);
   }
 
