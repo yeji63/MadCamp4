@@ -16,6 +16,80 @@ for(let i = 0; i < 6; i++){
 }
 
 
+
+$(".img0").click(function(){
+    document.getElementById("backgroundT").style.display = "block";
+    document.getElementById("img0").style.display="none";
+    document.getElementById("big0").style.display="block";
+    
+    const backgroundT = document.getElementById("backgroundT");
+    backgroundT.addEventListener("click", () => {
+        document.getElementById("backgroundT").style.display = "none";
+        document.getElementById("img0").style.display="block";
+        document.getElementById("big0").style.display="none";
+    });
+})
+$(".img1").click(function(){
+    document.getElementById("backgroundT").style.display = "block";
+    document.getElementById("img1").style.display="none";
+    document.getElementById("big1").style.display="block";
+    
+    const backgroundT = document.getElementById("backgroundT");
+    backgroundT.addEventListener("click", () => {
+        document.getElementById("backgroundT").style.display = "none";
+        document.getElementById("img1").style.display="block";
+        document.getElementById("big1").style.display="none";
+    });
+})
+$(".img2").click(function(){
+    document.getElementById("backgroundT").style.display = "block";
+    document.getElementById("img2").style.display="none";
+    document.getElementById("big2").style.display="block";
+    
+    const backgroundT = document.getElementById("backgroundT");
+    backgroundT.addEventListener("click", () => {
+        document.getElementById("backgroundT").style.display = "none";
+        document.getElementById("img2").style.display="block";
+        document.getElementById("big2").style.display="none";
+    });
+})
+$(".img3").click(function(){
+    document.getElementById("backgroundT").style.display = "block";
+    document.getElementById("img3").style.display="none";
+    document.getElementById("big3").style.display="block";
+    
+    const backgroundT = document.getElementById("backgroundT");
+    backgroundT.addEventListener("click", () => {
+        document.getElementById("backgroundT").style.display = "none";
+        document.getElementById("img3").style.display="block";
+        document.getElementById("big3").style.display="none";
+    });
+})
+$(".img4").click(function(){
+    document.getElementById("backgroundT").style.display = "block";
+    document.getElementById("img4").style.display="none";
+    document.getElementById("big4").style.display="block";
+    
+    const backgroundT = document.getElementById("backgroundT");
+    backgroundT.addEventListener("click", () => {
+        document.getElementById("backgroundT").style.display = "none";
+        document.getElementById("img4").style.display="block";
+        document.getElementById("big4").style.display="none";
+    });
+})
+$(".img5").click(function(){
+    document.getElementById("backgroundT").style.display = "block";
+    document.getElementById("img5").style.display="none";
+    document.getElementById("big5").style.display="block";
+    
+    const backgroundT = document.getElementById("backgroundT");
+    backgroundT.addEventListener("click", () => {
+        document.getElementById("backgroundT").style.display = "none";
+        document.getElementById("img5").style.display="block";
+        document.getElementById("big5").style.display="none";
+    });
+})
+
 $(".img10").click(function(){
     localStorage.setItem('num', 0);
     localStorage.setItem('place', "Italy");
