@@ -53,15 +53,13 @@ db.collection("travel").where('num', '==', rand).get()
 
 document.addEventListener('click', function(){
     if(check==0){
-        var template =  `<img src="image/pngwing.com.png" width="100%" height="100%"></img>`
-        $('.paper').append(template)
-    }
-    else if (check==1){
+        var template =  `<img src="image/letterpaper.png" width="100%" height="100%"></img>`
+        $('.paper').append(template) 
         $('.letter').append(temp)
     }
-    else if (check==2){
-        location.href="streetview.html"
-    }
+    else if (check==1){
+       location.href="streetview.html"
+      }
     check++;
 })
 
