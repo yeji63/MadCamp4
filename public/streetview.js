@@ -19,6 +19,7 @@ function initPano() {
     // var destLatLng = [{lat: 48.859229, lng : 2.293217}, {lat: 41.890130, lng : 12.492220}];
     // const startLatLng = [{lat: 48.8580206, lng: 2.2813881}, {lat: 41.884898, lng: 12.489241}];
     // const rand = Math.floor(Math.random() * 2); //0<=rand<=1
+    const gender = localStorage.getItem('gender');
     const username = localStorage.getItem('username');
     const num = localStorage.getItem('num');
     const place = localStorage.getItem('place');
@@ -69,7 +70,7 @@ function initPano() {
 
         if(Math.abs(newLat-destCoordLat)<0.001 && Math.abs(newLng-destCoordLng)<0.001) {
             if(!succ){
-                alert(`Congratulations, you've found ` + landmark + `!\nReturning home after 10 seconds`);
+                // alert(`Congratulations, you've found ` + landmark + `!\nReturning home after 10 seconds`);
                 console.log(`return home`);
                   db.collection("user").where('username', '==', username).get()
                   .then(function(querySnapshot){
@@ -94,17 +95,34 @@ function initPano() {
                       console.log("Error getting documents: ", error);
                   });
 
+                  document.getElementById("timer").style.display = "block";
+                  document.getElementById("seal").style.display = "block";
+                  // document.getElementById("floating-panel").style.display = "block";
+                  var temp = `
+                          <p class="letter2" style="font-size: 40px; margin-bottom:50px">Contratulations!</p>
+                          <p class="letter2">You have successfully found ${landmark}</p>
+                          <p class="letter3">${landmark} is famous for ~~ </b></p> 
+                          <p class="letter4">Touch the seal when you wish to return home.</b></p>
+                          <p class="letter5">Yours sincerely,</p>
+                          <p class="letter6" style="font-family: 'Homemade Apple', cursive;">MadCamp4</p>`;
+                  $('.message').append(temp);
+
+                  const seal = document.getElementById("seal");
+                  seal.addEventListener("click", ()=>{
+                    location.href="wallpaper.html"
+                  });
+
                   // var audio = new Audio('audio/shutter.wav');
                   // audio.play();
 
-                  document.getElementById("timer").style.display = "block";
-                  document.getElementById("floating-panel").style.display = "block";
-                  var tenseconds=10, display=document.querySelector('#time');
-                  startTimer(tenseconds, display);
+                  // document.getElementById("timer").style.display = "block";
+                  // document.getElementById("floating-panel").style.display = "block";
+                  // var tenseconds=10, display=document.querySelector('#time');
+                  // startTimer(tenseconds, display);
 
-                  setTimeout(function(){
-                    location.href="wallpaper.html"
-                  }, 10000);
+                  // setTimeout(function(){
+                  //   location.href="wallpaper.html"
+                  // }, 10000);
 
                   succ = true;
             }

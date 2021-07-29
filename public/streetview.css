@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap');
 /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
        #map {
@@ -20,14 +22,31 @@
 
       #timer{
         position: absolute;
-        width:240px;
+        width:690px;
         top: 40px;
-        left: 40px;
+        left: 600px;
         z-index: 5;
         display: none;
       }
 
-      #floating-panel {
+      #seal{
+        position: absolute;
+        width:120px;
+        top: 860px;
+        left: 890px;
+        z-index: 10;
+        display: none;
+      }
+
+      #message{
+        position: absolute;
+        top: 250px;
+        left: 750px;
+        z-index: 10;
+        font-family: 'Dancing Script', cursive; text-align: left; font-size: 26px;
+      }
+
+      /* #floating-panel {
         position: absolute;
         top: 205px;
         left: 138px;
@@ -37,7 +56,9 @@
         font-size: 35px;
         font-family: 'Lora', serif;
         display: none;
-      }
+      } */
+
+
 
 
         /* font-family: 'Do Hyeon', sans-serif; */
