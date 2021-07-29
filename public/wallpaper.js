@@ -8,10 +8,19 @@ for(let i = 0; i < 6; i++){
         var imagename = "img" + i;
         console.log(imagename);
         document.getElementById(imagename).style.display = "block";
+
+        var temp = "img" + (i+10);
+        console.log(temp);
+        document.getElementById(temp).style.display = "none";
+
     }else{
         var imagename = "img" + (i+10);
         console.log(imagename);
         document.getElementById(imagename).style.display = "block";
+
+        var temp = "img" + i;
+        console.log(temp);
+        document.getElementById(temp).style.display = "none";
     }
 }
 

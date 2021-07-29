@@ -135,10 +135,10 @@ function initPano() {
     const landmark = localStorage.getItem('landmark');
     document.getElementById("smallScript").style.display = "none";
 
-    var temp = `<p class="letter2" style="font-size: 40px; margin-bottom:50px">Contratulations!</p>
+    var temp = `<p class="letter2" style="font-size: 40px; margin-bottom:70px">Contratulations!</p>
           <p class="letter2">You have successfully found ${landmark}</p>
           <p class="letter3">${landmark} is famous for ~~ </b></p> 
-          <p class="letter4">Touch the seal when you wish to return home.</b></p>
+          <p class="letter4" style="margin-bottom:70px">Touch the seal when you wish to return home.</b></p>
           <p class="letter5">Yours sincerely,</p>
           <p class="letter6" style="font-family: 'Homemade Apple', cursive;">MadCamp4</p>`;
     $('.message').append(temp);
