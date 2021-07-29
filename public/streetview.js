@@ -41,8 +41,7 @@ function initPano() {
   //   document.body.addEventListener("mousemove", function () {
   //     audio.play()
   // })
-    // var audio = new Audio('audio/shutter.wav');
-    // audio.play();
+  
 
   var succ = false;
   var far = false;
@@ -70,6 +69,8 @@ function initPano() {
 
     if(Math.abs(newLat-destCoordLat)<0.001 && Math.abs(newLng-destCoordLng)<0.001) {
       if(!succ){
+        var audio = new Audio('audio/shutter.wav');
+        audio.play();
         // alert(`Congratulations, you've found ` + landmark + `!\nReturning home after 10 seconds`);
         console.log(`return home`);
         db.collection("user").where('username', '==', username).get()
@@ -95,7 +96,7 @@ function initPano() {
           console.log("Error getting documents: ", error);
         });
 
-        showScript();
+        showScript(false);
 
         succ = true;
       }
@@ -123,12 +124,16 @@ function initPano() {
 
   const smallScript = document.getElementById("smallScript");
   smallScript.addEventListener("click", () => {
-    showScript();
+    showScript(true);
   });
 
 }
 
-  function showScript(){
+  function showScript(temp){
+    if(temp){
+      var audio2 = new Audio('audio/paper.wav');
+      audio2.play();
+    }
     document.getElementById("bigScript").style.display = "block";
     document.getElementById("seal").style.display = "block";
     document.getElementById("backgroundT").style.display = "block";
@@ -137,14 +142,15 @@ function initPano() {
 
     var temp = `<p class="letter2" style="font-size: 40px; margin-bottom:70px">Contratulations!</p>
           <p class="letter2">You have successfully found ${landmark}</p>
-          <p class="letter3">${landmark} is famous for ~~ </b></p> 
-          <p class="letter4" style="margin-bottom:70px">Touch the seal when you wish to return home.</b></p>
+          <p class="letter4">If you wish to return home, touch the seal.</b></p>
           <p class="letter5">Yours sincerely,</p>
           <p class="letter6" style="font-family: 'Homemade Apple', cursive;">MadCamp4</p>`;
     $('.message').append(temp);
   }
 
   function closeScript(){
+    var audio2 = new Audio('audio/paper.wav');
+    audio2.play();
     document.getElementById("bigScript").style.display = "none";
     document.getElementById("seal").style.display = "none";
     document.getElementById("backgroundT").style.display = "none";
