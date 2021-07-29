@@ -95,34 +95,7 @@ function initPano() {
                       console.log("Error getting documents: ", error);
                   });
 
-                  document.getElementById("timer").style.display = "block";
-                  document.getElementById("seal").style.display = "block";
-                  // document.getElementById("floating-panel").style.display = "block";
-                  var temp = `
-                          <p class="letter2" style="font-size: 40px; margin-bottom:50px">Contratulations!</p>
-                          <p class="letter2">You have successfully found ${landmark}</p>
-                          <p class="letter3">${landmark} is famous for ~~ </b></p> 
-                          <p class="letter4">Touch the seal when you wish to return home.</b></p>
-                          <p class="letter5">Yours sincerely,</p>
-                          <p class="letter6" style="font-family: 'Homemade Apple', cursive;">MadCamp4</p>`;
-                  $('.message').append(temp);
-
-                  const seal = document.getElementById("seal");
-                  seal.addEventListener("click", ()=>{
-                    location.href="wallpaper.html"
-                  });
-
-                  // var audio = new Audio('audio/shutter.wav');
-                  // audio.play();
-
-                  // document.getElementById("timer").style.display = "block";
-                  // document.getElementById("floating-panel").style.display = "block";
-                  // var tenseconds=10, display=document.querySelector('#time');
-                  // startTimer(tenseconds, display);
-
-                  // setTimeout(function(){
-                  //   location.href="wallpaper.html"
-                  // }, 10000);
+                  showScript();
 
                   succ = true;
             }
@@ -137,6 +110,47 @@ function initPano() {
             far = false;
         }
     });
+
+    const seal = document.getElementById("seal");
+    seal.addEventListener("click", ()=>{
+        location.href="wallpaper.html"
+    });
+
+    const backgroundT = document.getElementById("backgroundT");
+    backgroundT.addEventListener("click", () => {
+        closeScript();
+    });
+
+    const smallScript = document.getElementById("smallScript");
+    smallScript.addEventListener("click", () => {
+        showScript();
+    });
+
+  }
+
+  function showScript(){
+    document.getElementById("bigScript").style.display = "block";
+    document.getElementById("seal").style.display = "block";
+    document.getElementById("backgroundT").style.display = "block";
+    const landmark = localStorage.getItem('landmark');
+    document.getElementById("smallScript").style.display = "none";
+
+    var temp = `<p class="letter2" style="font-size: 40px; margin-bottom:50px">Contratulations!</p>
+            <p class="letter2">You have successfully found ${landmark}</p>
+            <p class="letter3">${landmark} is famous for ~~ </b></p> 
+            <p class="letter4">Touch the seal when you wish to return home.</b></p>
+            <p class="letter5">Yours sincerely,</p>
+            <p class="letter6" style="font-family: 'Homemade Apple', cursive;">MadCamp4</p>`;
+    $('.message').append(temp);
+  }
+
+  function closeScript(){
+    document.getElementById("bigScript").style.display = "none";
+    document.getElementById("seal").style.display = "none";
+    document.getElementById("backgroundT").style.display = "none";
+    document.getElementById("smallScript").style.display = "block";
+    const element = document.getElementById('message');
+    element.innerText = '';
   }
 
   function startTimer(duration, display){

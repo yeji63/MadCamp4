@@ -20,11 +20,30 @@
         float: left;
       }
 
-      #timer{
+      #backgroundT {
+        opacity:0.5;
         position: absolute;
-        width:690px;
+        width:100%;
+        height:100%;
+        z-index: 3;
+        display: none;
+    }
+
+      #bigScript{
+        position: absolute;
+        width:790px;
+        height:900px;
         top: 40px;
-        left: 600px;
+        left: 560px;
+        z-index: 5;
+        display: none;
+      }
+
+      #smallScript{
+        position: absolute;
+        width:400px;
+        top: 730px;
+        left: 1510px;
         z-index: 5;
         display: none;
       }
@@ -41,7 +60,7 @@
       #message{
         position: absolute;
         top: 250px;
-        left: 750px;
+        left: 710px;
         z-index: 10;
         font-family: 'Dancing Script', cursive; text-align: left; font-size: 26px;
       }
