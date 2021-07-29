@@ -33,8 +33,8 @@
         position: absolute;
         width:790px;
         height:900px;
-        top: 40px;
-        left: 560px;
+        top: 5%;
+        left: 27%;
         z-index: 5;
         display: none;
       }
@@ -42,8 +42,8 @@
       #smallScript{
         position: absolute;
         width:400px;
-        top: 730px;
-        left: 1510px;
+        top: 74%;
+        left: 78%;
         z-index: 5;
         display: none;
       }
@@ -51,16 +51,16 @@
       #seal{
         position: absolute;
         width:120px;
-        top: 860px;
-        left: 890px;
+        top: 87%;
+        left: 47%;
         z-index: 10;
         display: none;
       }
 
       #message{
         position: absolute;
-        top: 250px;
-        left: 710px;
+        top: 26%;
+        left: 35%;
         z-index: 10;
         font-family: 'Dancing Script', cursive; text-align: left; font-size: 26px;
       }
